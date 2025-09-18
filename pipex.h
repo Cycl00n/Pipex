@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/18 10:27:20 by clnicola          #+#    #+#             */
+/*   Updated: 2025/09/18 12:12:31 by clnicola         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PIPEX_H
+# define PIPEX_H
+
+# include "Libft/libft.h"
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int check_args(int ac);
+
+
+#endif
