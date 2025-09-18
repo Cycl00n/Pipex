@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:27:20 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/18 14:07:03 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/18 14:19:42 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-int check_args(int ac);
 void parent(char **av, int *p_fd, char **env);
 void child(char **av, int *p_fd, char **env);
 int open_file(char *name, int fd);

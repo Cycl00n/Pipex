@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:27:13 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/18 14:16:55 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/18 14:27:43 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ void	exec(char *cmd, char **env)
 		ft_printf("command not found: %s\n",args[0]);
 		exit(0);
 	}
-	execve(path, args, env);
+	if((execve(path, args, env)) == -1);
+	{
+		// free(args); #Need a free tabs functions
+		exit(0);
+	}
 }
 
 int open_file(char *name, int fd)
