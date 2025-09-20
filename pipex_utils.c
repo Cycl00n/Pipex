@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:30:36 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 12:37:38 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/20 14:42:51 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_cmd(char **env, char *cmd)
 		temp = ft_strjoin(path[i], "/");
 		full_path = ft_strjoin(temp, cmd);
 		free(temp);
-		if (access(full_path, X_OK) == 0)
+		if (access(full_path, F_OK | X_OK) == 0)
 		{
 			free_tabs(path);
 			return (full_path);

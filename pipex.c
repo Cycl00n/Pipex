@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:27:13 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 14:28:29 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/20 14:47:09 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ int	main(int ac, char **av, char **env)
 	pid = fork();
 	if (!pid)
 		child(av, p_fd, env);
-	parent(av, p_fd, env);
+	else
+	{
+		parent(av, p_fd, env);
+		waitpid(pid, NULL, 0);
+	}
 }
