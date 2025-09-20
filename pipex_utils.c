@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:30:36 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 10:45:34 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/20 12:37:38 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 void	free_tabs(char **args)
 {
-	char	**temp;
 	int		i;
 
 	i = 0;
 	if (args == NULL)
 		return ;
-	temp = args;
-	while (temp[i])
+	while (args[i])
 	{
-		free(temp[i]);
+		free(args[i]);
 		i++;
 	}
-	free(temp);
+	free(args);
 }
 
 char	*get_path(char **env)
@@ -51,6 +49,8 @@ char	*get_cmd(char **env, char *cmd)
 	char	*full_path;
 
 	i = 0;
+	if(!cmd || !*cmd )
+		exit(1);
 	path = ft_split(get_path(env), ':');
 	while (path[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:27:13 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 10:55:43 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/20 14:28:29 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,25 @@ void	exec(char *cmd, char **env)
 	char	*path;
 	char	**args;
 
+	if(cmd == NULL)
+		exit(1);
 	args = ft_split(cmd, ' ');
+	if (!args[0])
+	{
+		free_tabs(args);
+		exit(1);
+	}
 	path = get_cmd(env, args[0]);
 	if ((execve(path, args, env)) == -1)
 	{
 		ft_putstr_fd("command not found: ", 2);
 		ft_putstr_fd(args[0], 2);
 		ft_putchar_fd('\n', 2);
+		free(path);
 		free_tabs(args);
-		exit(1);
+		exit(127);
 	}
+	free_tabs(args);
 }
 
 int	open_file(char *name, int fd)
@@ -73,7 +82,7 @@ int	main(int ac, char **av, char **env)
 	pid_t	pid;
 
 	if (ac != 5)
-		exit(1);
+		exit(0);
 	if (pipe(p_fd) == -1)
 		exit(1);
 	pid = fork();
