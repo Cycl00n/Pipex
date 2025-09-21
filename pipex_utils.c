@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:30:36 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 14:42:51 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/21 10:40:56 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_tabs(char **args)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (args == NULL)
@@ -49,7 +49,7 @@ char	*get_cmd(char **env, char *cmd)
 	char	*full_path;
 
 	i = 0;
-	if(!cmd || !*cmd )
+	if (!cmd || !*cmd)
 		exit(1);
 	path = ft_split(get_path(env), ':');
 	while (path[i])
@@ -67,4 +67,14 @@ char	*get_cmd(char **env, char *cmd)
 	}
 	free_tabs(path);
 	return (NULL);
+}
+
+void	handle_cmd_errors(char **args, char *path)
+{
+	ft_putstr_fd("command not found: ", 2);
+	ft_putstr_fd(args[0], 2);
+	ft_putchar_fd('\n', 2);
+	free(path);
+	free_tabs(args);
+	exit(127);
 }

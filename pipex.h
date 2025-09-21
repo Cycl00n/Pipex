@@ -6,7 +6,7 @@
 /*   By: clnicola <clnicola@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 10:27:20 by clnicola          #+#    #+#             */
-/*   Updated: 2025/09/20 10:05:22 by clnicola         ###   ########.fr       */
+/*   Updated: 2025/09/21 10:39:01 by clnicola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	exec(char *cmd, char **env);
 char	*get_path(char **env);
 char	*get_cmd(char **env, char *cmd);
 void	free_tabs(char **args);
+void	handle_cmd_errors(char **args, char *path);
 
 #endif
